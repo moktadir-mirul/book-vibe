@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <h1 className='py-10 text-4xl font-semibold'>Books</h1>
+            <h1 className='py-10 text-4xl font-semibold text-center'>Books</h1>
             <Suspense>
                 <BookCards allBooksData={allBooksData}></BookCards>
             </Suspense>
