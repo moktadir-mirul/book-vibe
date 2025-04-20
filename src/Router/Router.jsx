@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
+import Footer from "../Components/Footer";
 
 
 
@@ -9,7 +10,7 @@ export const router = createBrowserRouter([
         element: <App></App>,
     },
     {
-        path: "/about",
-        element: <h1>This is ABount page.</h1>
+        path: "/ABout",
+        element: <Footer></Footer>
     }
 ])
