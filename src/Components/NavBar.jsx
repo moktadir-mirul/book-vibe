@@ -14,8 +14,8 @@ const NavBar = () => {
                     <h1 className='font-extrabold text-4xl text-black'>Book Vibe</h1>
                 </div>
                     <div className='flex justify justify-between gap-5 font-medium text-xl list-none'>
-                        <Link to="/"><li><a href="#">Home</a></li></Link>
-                        <Link to="/ABout"><li><a href="#">Listed Books</a></li></Link>
+                        <Link to="/">Home</Link>
+                        <Link to="/ABout">Listed Books</Link>
                         <li><a href=""></a>Pages to Read</li>
                     </div>
                     <div>
