@@ -22,11 +22,11 @@ const BookDetails = () => {
     }
     const {bookId, bookName, author, rating, image, review, totalPages, yearOfPublishing, publisher} = bookDetailsData;
     return (
-        <div className='w-11/12 border-b-2 border-gray-200 border-t-2 mx-auto py-8 flex flex-col lg:flex-row justify-between items-start gap-5 lg:gap-0'>
-            <div className='lg:flex-1 w-full flex justify-center'>
-                <img src={image} alt={bookName} />
+        <div className='w-11/12 border-b-2 border-gray-200 border-t-2 mx-auto py-8 flex flex-col lg:flex-row items-start gap-5'>
+            <div className='flex-1 w-full flex justify-center bg-gray-200 p-5'>
+                <img className='w-full' src={image} alt={bookName} />
             </div>
-            <div className='lg:flex-1'>
+            <div className='flex-1 space-y-5'>
                 <h1 className='font-bold text-2xl'>Book Name: {bookName}</h1>
                 <h1 className='font-bold text-lg'> Author: {author}</h1>
                 <h1><strong>Review</strong> <br />{review}</h1>
@@ -34,8 +34,10 @@ const BookDetails = () => {
                 <h1><strong>Year of Publishing:</strong> {yearOfPublishing}</h1>
                 <h1><strong>Publisher: </strong>{publisher}</h1>
                 <h1 className='font-medium'><strong>Number of Pages:</strong> {totalPages}</h1>
-                <button onClick={() => handleBookReadList(bookId, bookName)} className='btn btn-success '>Mark as Read</button>
+                <div>
+                    <button onClick={() => handleBookReadList(bookId, bookName)} className='btn btn-success '>Mark as Read</button>
                 <button className='btn btn-success m-2'>Add to WishList</button>
+                </div>
             </div>
         </div>
     );

@@ -3,6 +3,9 @@ import { getFromDB } from "../../Utility/addToWishList";
 import { useLoaderData } from "react-router";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
+import ReadBooksList from "../../Components/ReadBooks/ReadBooksList";
+import WishBooksList from "../../Components/WishBooks/WishBooksList";
+
 
 const ReadList = () => {
   const allBooks = useLoaderData();
@@ -26,10 +29,10 @@ const ReadList = () => {
         </TabList>
 
         <TabPanel>
-          <h2>Any content 1</h2>
+          <ReadBooksList listedBooks={listedBooks}></ReadBooksList>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <WishBooksList></WishBooksList>
         </TabPanel>
       </Tabs>
     </div>
