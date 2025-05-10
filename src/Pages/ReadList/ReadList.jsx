@@ -47,7 +47,7 @@ const ReadList = () => {
           <ReadBooksList listedBooks={listedBooks}></ReadBooksList>
         </TabPanel>
         <TabPanel>
-          <WishBooksList wishListedBooks={wishListedBooks}></WishBooksList>
+          <WishBooksList wishListedBooks={wishListedBooks} setWishListedBooks={setWishListedBooks}></WishBooksList>
         </TabPanel>
       </Tabs>
     </div>

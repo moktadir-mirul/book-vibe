@@ -31,7 +31,7 @@ const WishBookCard = ({book , setWishListedBooks}) => {
                     <h1 className='flex items-center gap-2 bg-amber-200 text-amber-700 px-2 py-1 rounded-2xl'> Ratings : <strong>{rating}</strong></h1>
                 </div>
                 <div>
-                    <button onClick={() => {removeFromWishList(bookId)
+                    <button onClick={() => {removeFromWishList(bookId);
                         setWishListedBooks(getFromoDBForWishList())
                     }} className='btn btn-lg btn-warning'>Remove from Wish List</button>
                 </div>
