@@ -3,7 +3,8 @@ import { toast } from "react-toastify";
 const getFromDB = () => {
     const storedBooksInDB = localStorage.getItem('books');
     if(storedBooksInDB) {
-        return JSON.parse(storedBooksInDB);
+        const allReadListBooks = JSON.parse(storedBooksInDB);
+        return allReadListBooks
     }
     return [];
 }
@@ -19,4 +20,9 @@ const addToDB = (bookId, bookName) => {
         toast.success(`${bookName} is added to Read List`);
     }
 }
-export {getFromDB, addToDB};
+const removeFromList = (id) => {
+    const listedBooks = getFromDB();
+    const updatedListedBooks = listedBooks.filter(bookid => bookid !== id);
+    localStorage.setItem('books', updatedListedBooks);
+}
+export {getFromDB, addToDB, removeFromList};

@@ -3,7 +3,8 @@ import { toast } from "react-toastify";
 const getFromoDBForWishList = () => {
     const wishedBooks = localStorage.getItem("wishedBooks");
     if(wishedBooks) {
-        return JSON.parse(wishedBooks);
+        const allWishListedBooks = JSON.parse(wishedBooks);
+        return allWishListedBooks;
     }
     return [];
 }
@@ -20,5 +21,9 @@ const addToDBWishList = (bookId, bookName) => {
         toast(`${bookName} added to wish list.`)
     }
 }
-
-export {addToDBWishList, getFromoDBForWishList};
+ const removeFromWishList = (id) => {
+    const allWishBooks = getFromoDBForWishList();
+    const updatedWishList = allWishBooks.filter(bookid => bookid !== id);
+    localStorage.setItem("wishedBooks", JSON.stringify(updatedWishList));
+ }
+export {addToDBWishList, getFromoDBForWishList, removeFromWishList};

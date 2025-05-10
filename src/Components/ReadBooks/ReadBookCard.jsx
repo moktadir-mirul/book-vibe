@@ -14,11 +14,14 @@ const ReadBookCard = ({book}) => {
                 <h1 className='text-3xl font-bold'>{bookName}</h1>
                 <h1 className='text-lg'>By : <strong>{author}</strong></h1>
                 <div className='flex flex-col lg:flex-row gap-5'>
-                    <h1 className='flex items-center'>
-                        Tags: {
+                    <div className='flex items-center'>
+                        Tags: 
+                        <div>
+                        {
                         tags.map((tag, i) => <p key={i} className='py-1 px-2 rounded-2xl bg-green-200 text-green-800 font-semibold ml-2'>#{tag}</p>)
                         }
-                    </h1>
+                        </div>
+                    </div>
                     <h1 className='flex items-center'><MdOutlineLocationOn size={25}/> Year of Publishing: <strong>{yearOfPublishing}</strong></h1>
                 </div>
                 <div className='flex flex-col lg:flex-row gap-5 pb-3 border-b-2 border-gray-200'>
@@ -28,6 +31,9 @@ const ReadBookCard = ({book}) => {
                 <div className='flex flex-col lg:flex-row gap-5 pt-3'>
                     <h1 className='flex items-center gap-2  px-2 py-1 bg-blue-300 text-blue-700 rounded-2xl'> Category: <strong> {category}</strong></h1>
                     <h1 className='flex items-center gap-2 bg-amber-200 text-amber-700 px-2 py-1 rounded-2xl'> Ratings : <strong>{rating}</strong></h1>
+                </div>
+                <div>
+                    <button className='btn btn-lg btn-warning'>Remove from Read List</button>
                 </div>
             </div>
         </div>

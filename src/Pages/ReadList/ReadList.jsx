@@ -11,7 +11,7 @@ import { getFromoDBForWishList } from "../../Utility/onlyAddToWishList";
 const ReadList = () => {
   const allBooks = useLoaderData();
   const [listedBooks, setlistedBooks] = useState([]);
-  const [wishListedBooks, setWishListedBooks] = useState([])
+  const [wishListedBooks, setWishListedBooks] = useState(getFromoDBForWishList())
   useEffect(() => {
     const readList = getFromDB();
     const readListedBooks = [];
@@ -26,7 +26,7 @@ const ReadList = () => {
   
   }, [allBooks]);
   console.log(listedBooks);
-  console.log(wishListedBooks)
+  console.log(wishListedBooks);
   return (
     <div className="w-11/12 mx-auto">
       <div className="flex flex-col items-center">
@@ -34,7 +34,7 @@ const ReadList = () => {
           <h1>Books</h1>
         </div>
         <div className="py-5">
-          <button className="btn bg-green-500 text-white hover:bg-green-800 font-bold px-6 py-2"></button>
+          <button className="btn bg-green-500 text-white hover:bg-green-800 font-bold px-6 py-2">Sort By</button>
         </div>
       </div>
       <Tabs>

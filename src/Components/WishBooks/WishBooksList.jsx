@@ -1,12 +1,12 @@
 import React from 'react';
 import WishBookCard from './WishBookCard';
 
-const WishBooksList = ({wishListedBooks}) => {
+const WishBooksList = ({wishListedBooks, setWishListedBooks}) => {
     console.log(wishListedBooks)
     return (
         <div>
             {
-                wishListedBooks.map((book) => <WishBookCard key={book.bookId} book={book}></WishBookCard>)
+                wishListedBooks.map((book) => <WishBookCard key={book.bookId} book={book} setWishListedBooks={setWishListedBooks}></WishBookCard>)
             }
         </div>
     );
