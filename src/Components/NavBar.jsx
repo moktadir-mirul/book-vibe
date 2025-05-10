@@ -15,7 +15,7 @@ const NavBar = () => {
                 </div>
                     <div className='flex justify justify-between gap-5 font-medium text-xl list-none'>
                         <Link to="/">Home</Link>
-                        <Link to="/ABout">Listed Books</Link>
+                        <Link to="/readlist">Read List</Link>
                         <li><a href=""></a>Pages to Read</li>
                     </div>
                     <div>

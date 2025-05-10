@@ -9,9 +9,9 @@ function App() {
     <div className="h-screen flex flex-col justify-between">
       <div>
         <NavBar></NavBar>
-      </div>
-      <div>
-        <Outlet></Outlet>
+        <section>
+          <Outlet></Outlet>
+        </section>
         <ToastContainer></ToastContainer>
       </div>
       <div>
