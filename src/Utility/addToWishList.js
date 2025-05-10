@@ -5,7 +5,7 @@ const getFromDB = () => {
     if(storedBooksInDB) {
         return JSON.parse(storedBooksInDB);
     }
-    return []
+    return [];
 }
 const addToDB = (bookId, bookName) => {
     const storedBooks = getFromDB();
