@@ -26,8 +26,8 @@ const ReadBookCard = ({book}) => {
                     <h1 className='flex items-center gap-2'><IoDocumentOutline /> Pages : <strong>{totalPages}</strong></h1>
                 </div>
                 <div className='flex flex-col lg:flex-row gap-5 pt-3'>
-                    <h1 className='flex items-center gap-2  px-2 py-1 bg-blue-300 text-blue-700 rounded-2xl'><LuUsers /> Category: <strong> {category}</strong></h1>
-                    <h1 className='flex items-center gap-2 bg-amber-200 text-amber-700 px-2 py-1 rounded-2xl'><IoDocumentOutline /> Ratings : <strong>{rating}</strong></h1>
+                    <h1 className='flex items-center gap-2  px-2 py-1 bg-blue-300 text-blue-700 rounded-2xl'> Category: <strong> {category}</strong></h1>
+                    <h1 className='flex items-center gap-2 bg-amber-200 text-amber-700 px-2 py-1 rounded-2xl'> Ratings : <strong>{rating}</strong></h1>
                 </div>
             </div>
         </div>

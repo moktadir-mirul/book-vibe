@@ -1,13 +1,16 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { addToDB } from '../Utility/addToWishList';
+import { addToDBWishList } from '../Utility/onlyAddToWishList';
 
 const BookDetails = () => {
     const {id} = useParams();
     const allBooks = useLoaderData();
-    console.log(allBooks);
     const handleBookReadList = (bookId, bookName) => {
         addToDB(bookId, bookName);
+    }
+    const handleBookWishList = (bookId, bookName) => {
+        addToDBWishList(bookId, bookName);
     }
     const bookDetailsData = allBooks.find(book => book.bookId === Number(id));
     
@@ -36,7 +39,7 @@ const BookDetails = () => {
                 <h1 className='font-medium'><strong>Number of Pages:</strong> {totalPages}</h1>
                 <div>
                     <button onClick={() => handleBookReadList(bookId, bookName)} className='btn btn-success '>Mark as Read</button>
-                <button className='btn btn-success m-2'>Add to WishList</button>
+                <button onClick={() => handleBookWishList(bookId, bookName)} className='btn btn-success m-2'>Add to WishList</button>
                 </div>
             </div>
         </div>

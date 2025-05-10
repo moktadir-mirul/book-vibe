@@ -10,7 +10,7 @@ const getFromDB = () => {
 const addToDB = (bookId, bookName) => {
     const storedBooks = getFromDB();
     if(storedBooks.includes(bookId)) {
-        toast.error('The Book Already Exist in the Read List');
+        toast.error(`${bookName} Already Exist in the Read List`);
     } 
     else {
         storedBooks.push(bookId);
