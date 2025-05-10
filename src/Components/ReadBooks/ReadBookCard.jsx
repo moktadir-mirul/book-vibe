@@ -2,9 +2,15 @@ import React from 'react';
 import { IoDocumentOutline } from 'react-icons/io5';
 import { LuUsers } from 'react-icons/lu';
 import { MdOutlineLocationOn } from 'react-icons/md';
+import { getFromDB, removeFromList } from '../../Utility/addToWishList';
 
-const ReadBookCard = ({book}) => {
-    const {bookName, author, rating, category, tags, image, totalPages, yearOfPublishing, publisher} = book;
+const ReadBookCard = ({book, setlistedBooks}) => {
+    console.log(book);
+    const handleRemoveBooks = (id) => {
+        removeFromList(id);
+        setlistedBooks(getFromDB());
+    }
+    const {bookId, bookName, author, rating, category, tags, image, totalPages, yearOfPublishing, publisher} = book;
     return (
         <div className='p-5 border-2 border-gray-200 flex flex-col lg:flex-row gap-5 items-center my-5 rounded-xl'>
             <div className='p-5 bg-gray-200 rounded-2xl'>
@@ -18,7 +24,7 @@ const ReadBookCard = ({book}) => {
                         Tags: 
                         <div>
                         {
-                        tags.map((tag, i) => <p key={i} className='py-1 px-2 rounded-2xl bg-green-200 text-green-800 font-semibold ml-2'>#{tag}</p>)
+                        tags?.map((tag, i) => <p key={i} className='py-1 px-2 rounded-2xl bg-green-200 text-green-800 font-semibold ml-2'>#{tag}</p>)
                         }
                         </div>
                     </div>
@@ -33,7 +39,7 @@ const ReadBookCard = ({book}) => {
                     <h1 className='flex items-center gap-2 bg-amber-200 text-amber-700 px-2 py-1 rounded-2xl'> Ratings : <strong>{rating}</strong></h1>
                 </div>
                 <div>
-                    <button className='btn btn-lg btn-warning'>Remove from Read List</button>
+                    <button onClick={() => handleRemoveBooks(bookId)} className='btn btn-lg btn-warning'>Remove from Read List</button>
                 </div>
             </div>
         </div>

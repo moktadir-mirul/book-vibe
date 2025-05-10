@@ -1,14 +1,22 @@
-import React from 'react';
-import ReadBookCard from './ReadBookCard';
+import React from "react";
+import ReadBookCard from "./ReadBookCard";
 
-const ReadBooksList = ({listedBooks}) => {
-    return (
-        <div>
-            {
-                listedBooks.map(book => <ReadBookCard key={book.bookId} book={book}></ReadBookCard>)
-            }
-        </div>
-    );
+const ReadBooksList = ({ listedBooks, setlistedBooks }) => {
+    console.log(listedBooks);
+  return (
+    <div>
+      {listedBooks.map((book) => {
+        console.log(book);
+        return (
+        <ReadBookCard
+          setlistedBooks={setlistedBooks}
+          key={book.bookId}
+          book={book}
+        ></ReadBookCard>)
+        
+})}
+    </div>
+  );
 };
 
 export default ReadBooksList;

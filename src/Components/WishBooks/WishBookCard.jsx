@@ -5,6 +5,7 @@ import { MdOutlineLocationOn } from 'react-icons/md';
 import { getFromoDBForWishList, removeFromWishList } from '../../Utility/onlyAddToWishList';
 
 const WishBookCard = ({book , setWishListedBooks}) => {
+    console.log(book);
     const {bookId, bookName, author, rating, category, tags, image, totalPages, yearOfPublishing, publisher} = book;
     return (
         <div className='p-5 bg-red-100 border-2 border-gray-200 flex flex-col lg:flex-row gap-5 items-center my-5 rounded-xl'>
@@ -32,7 +33,7 @@ const WishBookCard = ({book , setWishListedBooks}) => {
                 </div>
                 <div>
                     <button onClick={() => {removeFromWishList(bookId);
-                        setWishListedBooks(getFromoDBForWishList())
+                        setWishListedBooks(getFromoDBForWishList());
                     }} className='btn btn-lg btn-warning'>Remove from Wish List</button>
                 </div>
             </div>

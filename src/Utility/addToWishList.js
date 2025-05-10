@@ -23,6 +23,6 @@ const addToDB = (bookId, bookName) => {
 const removeFromList = (id) => {
     const listedBooks = getFromDB();
     const updatedListedBooks = listedBooks.filter(bookid => bookid !== id);
-    localStorage.setItem('books', updatedListedBooks);
+    localStorage.setItem("books", JSON.stringify(updatedListedBooks));
 }
 export {getFromDB, addToDB, removeFromList};

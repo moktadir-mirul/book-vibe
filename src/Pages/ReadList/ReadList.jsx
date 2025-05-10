@@ -11,22 +11,26 @@ import { getFromoDBForWishList } from "../../Utility/onlyAddToWishList";
 const ReadList = () => {
   const allBooks = useLoaderData();
   const [listedBooks, setlistedBooks] = useState([]);
-  const [wishListedBooks, setWishListedBooks] = useState(getFromoDBForWishList())
+  const [wishListedBooks, setWishListedBooks] = useState([])
   useEffect(() => {
+    // For read list
     const readList = getFromDB();
-    const readListedBooks = [];
-    for (let i = 0; i < readList.length; i++) {
-      const readBook = allBooks.find((book) => book.bookId === readList[i]);
-      readListedBooks.push(readBook);
-    }
-    setlistedBooks(readListedBooks);
+    // const readListedBooks = [];
+    // for (let i = 0; i < readList.length; i++) {
+    //   const readBook = allBooks.find((book) => book.bookId === readList[i]);
+    //   readListedBooks.push(readBook);
+    // }
+    // setlistedBooks(readListedBooks);
+    const myReadList = allBooks.filter((book) => readList.includes(book.bookId));
+    setlistedBooks(myReadList);
+
+    // For wishlist
     const wishListedBookofDB = getFromoDBForWishList();
     const wishListedBooksList = allBooks.filter((book) => wishListedBookofDB.includes(book.bookId));
     setWishListedBooks(wishListedBooksList);
   
   }, [allBooks]);
-  console.log(listedBooks);
-  console.log(wishListedBooks);
+
   return (
     <div className="w-11/12 mx-auto">
       <div className="flex flex-col items-center">
@@ -44,7 +48,7 @@ const ReadList = () => {
         </TabList>
 
         <TabPanel>
-          <ReadBooksList listedBooks={listedBooks}></ReadBooksList>
+          <ReadBooksList listedBooks={listedBooks} setlistedBooks={setlistedBooks}></ReadBooksList>
         </TabPanel>
         <TabPanel>
           <WishBooksList wishListedBooks={wishListedBooks} setWishListedBooks={setWishListedBooks}></WishBooksList>
