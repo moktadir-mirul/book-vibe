@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home";
 import BookDetails from "../Components/BookDetails";
 import ReadList from "../Pages/ReadList/ReadList";
 import Fallback from "../Components/Fallback";
+import PageRead from "../Pages/PageRead/PageRead";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,12 @@ export const router = createBrowserRouter([
         Component: BookDetails,
         HydrateFallback: Fallback
       },
+      {
+        path:"/pagestoread",
+        Component: PageRead,
+        loader: () => fetch("/booksData.json"),
+        HydrateFallback: Fallback
+      }
     ],
   },
 ]);

@@ -3,6 +3,7 @@ import { IoDocumentOutline } from 'react-icons/io5';
 import { LuUsers } from 'react-icons/lu';
 import { MdOutlineLocationOn } from 'react-icons/md';
 import { getFromoDBForWishList, removeFromWishList } from '../../Utility/onlyAddToWishList';
+import { toast } from 'react-toastify';
 
 const WishBookCard = ({book , setWishListedBooks, allBooks}) => {
 
@@ -17,6 +18,7 @@ const WishBookCard = ({book , setWishListedBooks, allBooks}) => {
             const wishListedBooksUp = allBooks.filter((book) => updatedWishList.includes(book.bookId));
             setWishListedBooks(wishListedBooksUp);
         }
+        toast.info(`${bookName} removed from WIsh`)
     }
     return (
         <div className='p-5 bg-red-100 border-2 border-gray-200 flex flex-col lg:flex-row gap-5 items-center my-5 rounded-xl'>

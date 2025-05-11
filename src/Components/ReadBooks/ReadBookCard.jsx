@@ -3,6 +3,7 @@ import { IoDocumentOutline } from 'react-icons/io5';
 import { LuUsers } from 'react-icons/lu';
 import { MdOutlineLocationOn } from 'react-icons/md';
 import { getFromDB, removeFromList } from '../../Utility/addToWishList';
+import { toast } from 'react-toastify';
 
 const ReadBookCard = ({book, setlistedBooks, allBooks}) => {
     const handleRemoveBooks = (id) => {
@@ -14,6 +15,7 @@ const ReadBookCard = ({book, setlistedBooks, allBooks}) => {
             const readListBooksUp = allBooks.filter((book) => updatedReadList.includes(book.bookId));
             setlistedBooks(readListBooksUp);
         }
+        toast.info(`${bookName} remover from Read List.`)
     }
     const {bookId, bookName, author, rating, category, tags, image, totalPages, yearOfPublishing, publisher} = book;
     return (
