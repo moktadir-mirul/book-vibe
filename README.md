@@ -1,12 +1,15 @@
-# React + Vite
+# Boi Poka Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Created By - Mirul Moktadir Khan
+-A website where you can see some books that you can add to wishlist or read list. You can also remove them. They will be there even after refresh. A chart is shown according to the page number. You can sort your read list by the sort button according to your demand.
 
-Currently, two official plugins are available:
+***Vite + React***
+#### React-Router
+#### React Icon
+#### Sweet Alert 2
+#### Daisy UI
+#### Tailwind CSS
+#### React Toast
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live-Link: https://moktadir-mirul.github.io/book-vibe/
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

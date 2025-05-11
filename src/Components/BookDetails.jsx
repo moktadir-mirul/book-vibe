@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { addToDB } from '../Utility/addToWishList';
 import { addToDBWishList } from '../Utility/onlyAddToWishList';
+import Swal from 'sweetalert2';
 
 const BookDetails = () => {
     const {id} = useParams();
