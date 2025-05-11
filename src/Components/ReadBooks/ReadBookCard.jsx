@@ -4,11 +4,16 @@ import { LuUsers } from 'react-icons/lu';
 import { MdOutlineLocationOn } from 'react-icons/md';
 import { getFromDB, removeFromList } from '../../Utility/addToWishList';
 
-const ReadBookCard = ({book, setlistedBooks}) => {
-    console.log(book);
+const ReadBookCard = ({book, setlistedBooks, allBooks}) => {
     const handleRemoveBooks = (id) => {
         removeFromList(id);
-        setlistedBooks(getFromDB());
+        const updatedReadList = getFromDB();
+        if(updatedReadList.length <= 0) {
+            setlistedBooks([]);
+        } else {
+            const readListBooksUp = allBooks.filter((book) => updatedReadList.includes(book.bookId));
+            setlistedBooks(readListBooksUp);
+        }
     }
     const {bookId, bookName, author, rating, category, tags, image, totalPages, yearOfPublishing, publisher} = book;
     return (

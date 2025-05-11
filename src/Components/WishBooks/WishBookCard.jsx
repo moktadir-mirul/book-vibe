@@ -4,9 +4,20 @@ import { LuUsers } from 'react-icons/lu';
 import { MdOutlineLocationOn } from 'react-icons/md';
 import { getFromoDBForWishList, removeFromWishList } from '../../Utility/onlyAddToWishList';
 
-const WishBookCard = ({book , setWishListedBooks}) => {
-    console.log(book);
+const WishBookCard = ({book , setWishListedBooks, allBooks}) => {
+
     const {bookId, bookName, author, rating, category, tags, image, totalPages, yearOfPublishing, publisher} = book;
+
+    const handleWishBookRemove = (id) => {
+        removeFromWishList(id);
+        const updatedWishList = getFromoDBForWishList();
+        if(updatedWishList.length <=0) {
+            setWishListedBooks([]);
+        } else {
+            const wishListedBooksUp = allBooks.filter((book) => updatedWishList.includes(book.bookId));
+            setWishListedBooks(wishListedBooksUp);
+        }
+    }
     return (
         <div className='p-5 bg-red-100 border-2 border-gray-200 flex flex-col lg:flex-row gap-5 items-center my-5 rounded-xl'>
             <div className='p-5 bg-gray-200 rounded-2xl'>
@@ -32,9 +43,7 @@ const WishBookCard = ({book , setWishListedBooks}) => {
                     <h1 className='flex items-center gap-2 bg-amber-200 text-amber-700 px-2 py-1 rounded-2xl'> Ratings : <strong>{rating}</strong></h1>
                 </div>
                 <div>
-                    <button onClick={() => {removeFromWishList(bookId);
-                        setWishListedBooks(getFromoDBForWishList());
-                    }} className='btn btn-lg btn-warning'>Remove from Wish List</button>
+                    <button onClick={() => handleWishBookRemove(bookId)} className='btn btn-lg btn-warning'>Remove from Wish List</button>
                 </div>
             </div>
         </div>

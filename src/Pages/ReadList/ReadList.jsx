@@ -15,14 +15,12 @@ const ReadList = () => {
   useEffect(() => {
     // For read list
     const readList = getFromDB();
-    // const readListedBooks = [];
-    // for (let i = 0; i < readList.length; i++) {
-    //   const readBook = allBooks.find((book) => book.bookId === readList[i]);
-    //   readListedBooks.push(readBook);
-    // }
-    // setlistedBooks(readListedBooks);
-    const myReadList = allBooks.filter((book) => readList.includes(book.bookId));
-    setlistedBooks(myReadList);
+    const readListedBooks = [];
+    for (let i = 0; i < readList.length; i++) {
+      const readBook = allBooks.find((book) => book.bookId === readList[i]);
+      readListedBooks.push(readBook);
+    }
+    setlistedBooks(readListedBooks);
 
     // For wishlist
     const wishListedBookofDB = getFromoDBForWishList();
@@ -48,10 +46,10 @@ const ReadList = () => {
         </TabList>
 
         <TabPanel>
-          <ReadBooksList listedBooks={listedBooks} setlistedBooks={setlistedBooks}></ReadBooksList>
+          <ReadBooksList allBooks={allBooks} listedBooks={listedBooks} setlistedBooks={setlistedBooks}></ReadBooksList>
         </TabPanel>
         <TabPanel>
-          <WishBooksList wishListedBooks={wishListedBooks} setWishListedBooks={setWishListedBooks}></WishBooksList>
+          <WishBooksList allBooks={allBooks} wishListedBooks={wishListedBooks} setWishListedBooks={setWishListedBooks}></WishBooksList>
         </TabPanel>
       </Tabs>
     </div>
